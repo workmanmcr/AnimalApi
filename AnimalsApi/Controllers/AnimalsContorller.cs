@@ -87,7 +87,7 @@ public class AnimalsController : ControllerBase
 
     private bool AnimalExists(int id)
     {
-      return _db.Animals.Any(a => a.AnimalId == id);
+      return _db.Animals.Any(animal => animal.AnimalId == id);
     }
     // add route to delete animals
     [HttpDelete("{id}")]

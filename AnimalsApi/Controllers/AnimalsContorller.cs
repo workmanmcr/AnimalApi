@@ -23,7 +23,7 @@ public class AnimalsController : ControllerBase
   }
 
   [HttpGet]
-  public async Task<ActionResult<IEnumerable<Animal>>> GetAnimals(string name, string species, int age)
+  public ActionResult<IEnumerable<Animal>> Get(string name, string species, int age)
   {
     var query = _db.Animals.AsQueryable();
 
@@ -40,19 +40,21 @@ public class AnimalsController : ControllerBase
       query = query.Where(entry => entry.Age == age);
     }
   
-
     return query.ToList();
   }
 
-    // route for posting new article
+  
+
+    // route for posting new animals
     [HttpPost]
     public async Task<ActionResult<Animal>> Post(Animal animal)
     {
       _db.Animals.Add(animal);
       await _db.SaveChangesAsync();
-      return CreatedAtAction(nameof(GetAnimals), new { id = animal.AnimalId }, animal);
+      return CreatedAtAction(nameof(Get), new { id = animal.AnimalId }, animal);
     }
-    //  route for editing Article
+    
+    //  route for editing Animals
     [HttpPut("{id}")]
     public async Task<ActionResult> Put(int id, Animal animal)
     {
@@ -86,7 +88,7 @@ public class AnimalsController : ControllerBase
     {
       return _db.Animals.Any(a => a.AnimalId == id);
     }
-    // add route to delete article
+    // add route to delete animals
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {

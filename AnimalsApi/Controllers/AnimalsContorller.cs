@@ -11,7 +11,9 @@ namespace AnimalsApi.Controllers;
 
 
 [ApiController]
-[Route("/api/[controller]")]
+[Route("api/v{version:apiVersion}/[controller]")]
+[ApiVersion("1.0")]
+[ApiVersion("2.0")]
 
 public class AnimalsController : ControllerBase
 {
@@ -43,7 +45,7 @@ public class AnimalsController : ControllerBase
     return query.ToList();
   }
 
-  
+
 
     // route for posting new animals
     [HttpPost]
@@ -105,4 +107,5 @@ public class AnimalsController : ControllerBase
       return NoContent();
     }
   }
+  
 

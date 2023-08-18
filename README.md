@@ -1,8 +1,8 @@
-# _Animal Shelter API _
+# _AnimalsAPI _
 
-####  An ASP.NET API for a local animal shelter (version 1.0) , April 3, 2020_
+####  An ASP.NET API for a local animal shelter (version 1.0)_
 
-#### By _**Fatma C. Dogan**_
+#### By _**Mike Workman**_
 
 ## Description
 
@@ -13,11 +13,10 @@ An API project that allows users to Create, Read, Update, and Delete animals and
 
 1. A user is able to GET (read) a list of animals.
 2. A user is able to GET a specific animal information based on AnimalId.
-3. A user is able to GET animals by type, age or gender.
+3. A user is able to GET animals by species, age or name.
 4. A user is able to POST (create) a new animal in the database.
 5. A user is able to PUT (update) an existing animal information in the database.
 6. A user is able to DELETE an existing animal information in the database.
-7. A user is able to GET a random animal information.
 
 ## API Endpoints
 
@@ -29,20 +28,29 @@ An API project that allows users to Create, Read, Update, and Delete animals and
    http://localhost:5000/api/v1/animals/
 
 #### Response
-    {
-        "animalId": 1,
-        "name": "Alfie",
-        "type": "Cat",
-        "age": 7,
-        "gender": "Male"
-    },
-    {
-        "animalId": 2,
-        "name": "Cheetah",
-        "type": "Cat",
-        "age": 6,
-        "gender": "Female"
-    } 
+  { 
+              AnimalId = 1, 
+              Name = "Spot", 
+              Species = "Dog",
+              Age = 3,
+              About = "lovable little dog found eating a taco in downtown, needs a home" 
+            },
+          
+            { 
+              AnimalId = 2, 
+              Name = "Muffin", 
+              Species = "Cat",
+              Age = 6,
+              About = "this big orange chonk loves to eat and and cuddle needs a home" 
+            },
+         
+            { 
+              AnimalId = 3, 
+              Name = "Mogar the Destroyer", 
+              Species = "Inner Dimensional Soul Eater",
+              Age = 769736544,
+              About = " please help us " 
+            }
 
 ### 2. Get a specific Animal
 #### Request
@@ -51,29 +59,28 @@ An API project that allows users to Create, Read, Update, and Delete animals and
    http://localhost:5000/api/v1/animals/1
 
 #### Response
-    {
-        "animalId": 1,
-        "name": "Alfie",
-        "type": "Cat",
-        "age": 7,
-        "gender": "Male"
-    }
+            { 
+              AnimalId = 1, 
+              Name = "Spot", 
+              Species = "Dog",
+              Age = 3,
+              About = "lovable little dog found eating a taco in downtown, needs a home" 
+            },
 
 ### 3. GET animals by type, age or gender
 #### Request
 `GET /animals/id`
 
-   http://localhost:5000/api/v1/animals?type=cat&age=6&gender=female
+   http://localhost:5000/api/v1/animals?species=cat&age=6&name=muffin
 
 #### Response
-    {
-        "animalId": 2,
-        "name": "Cheetah",
-        "type": "Cat",
-        "age": 6,
-        "gender": "Female"
-    }
-
+   { 
+              AnimalId = 2, 
+              Name = "Muffin", 
+              Species = "Cat",
+              Age = 6,
+              About = "this big orange chonk loves to eat and and cuddle needs a home" 
+            },
 ### 4. Create a new Animal
 
 #### Request
@@ -83,13 +90,13 @@ An API project that allows users to Create, Read, Update, and Delete animals and
     http://localhost:5000/api/v1/animals
 
 #### Request body
-    {
-      "animalId": 3,
-      "name": "Spike",
-      "type": "Ferret",
-      "age": 2,
-      "gender": "Female"
-    }
+     { 
+              AnimalId = 3, 
+              Name = "Mogar the Destroyer", 
+              Species = "Inner Dimensional Soul Eater",
+              Age = 769736544,
+              About = " please help us " 
+            }
 
 ### 5. Edit an Animal's information
 
@@ -100,13 +107,13 @@ An API project that allows users to Create, Read, Update, and Delete animals and
    PUT http://localhost:5000/api/v1/animals/3
 
 #### Request Body
-    {
-      "animalId": 3,
-      "name": "Spike",
-      "type": "Ferret",
-      "age": 3,
-      "gender": "Male"
-    }
+     { 
+              AnimalId = 3, 
+              Name = "Mogar the Destroyer", 
+              Species = "Inner Dimensional Soul Eater",
+              Age = 769736544,
+              About = " please help us " 
+            }
 
 ### 6. Delete an Animal
 
@@ -120,28 +127,13 @@ An API project that allows users to Create, Read, Update, and Delete animals and
 
     Status: 200 OK
     
-### 7. Get a random Animal
-#### Request
-`GET /animals/random`
-
-   http://localhost:5000/api/v1/animals/random
-
-#### Response
-    {
-      "animalId": 5,
-      "name": "Leila",
-      "type": "Dog",
-      "age": 2,
-      "gender": "Female"
-    }
-
-### 8. Get a non-existent Animal
+### 7. Get a non-existent Animal
 
 #### Request
 
 `GET /animals/id`
 
-   http://localhost:5000/api/v1/animals/9999
+   http://localhost:5000/api/v1/animals/
 
 #### Response
 

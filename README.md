@@ -202,7 +202,7 @@ _Add the MySQL environment variable to the System PATH. Instructions for Windows
 
 _Download Manually:_
 
-* Navigate to https://github.com/fc-dogan/AnimalShelterAPI
+* Navigate to https://github.com/workmanmcr/AnimalApi.git
 * Click the green "Clone or Download" button.
 * Click "Download ZIP".
 * Click downloaded file to unzip.
@@ -216,7 +216,7 @@ _In Terminal:_
   ```
 * Clone the file from GitHub with HTTPS
   ```
-  git clone https://github.com/
+  git clone https://github.com/workmanmcr/AnimalApi.git
   ```
 * Open file in your preferred text editor
   ```

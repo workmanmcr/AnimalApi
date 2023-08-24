@@ -28,7 +28,7 @@ public class AnimalsController : ControllerBase
   {
     var query = _db.Animals.AsQueryable();
 
-     if (id != null)
+     if (id != 0)
     {
       query = query.Where(entry => entry.AnimalId == id);
     }

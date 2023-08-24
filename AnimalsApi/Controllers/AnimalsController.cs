@@ -24,10 +24,14 @@ public class AnimalsController : ControllerBase
   }
 
   [HttpGet]
-  public ActionResult<IEnumerable<Animal>> Get(string name, string species, int age)
+  public ActionResult<IEnumerable<Animal>> Get(int id, string name, string species, int age)
   {
     var query = _db.Animals.AsQueryable();
 
+     if (id != null)
+    {
+      query = query.Where(entry => entry.AnimalId == id);
+    }
     if (name != null)
     {
       query = query.Where(entry => entry.Name == name);
